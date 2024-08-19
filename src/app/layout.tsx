@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
+import { Toaster } from "@/components/ui/sonner";
+
 import './globals.css'
+import Header from "@/components/Header";
 
 const nunito = Nunito({ subsets: ['latin'] })
 
@@ -16,8 +19,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${nunito.className} text-gray-900 antialiased`}>
-        {children}
+      <body className={`${nunito.className} bg-background text-gray-900 antialiased`}>
+      <Header />
+
+        <main className="isolate flex flex-col gap-40">
+          {children}
+        </main>
+        {/* {children} */}
+        <Toaster richColors />
+
       </body>
     </html>
   )
